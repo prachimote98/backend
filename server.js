@@ -1,5 +1,3 @@
-// const app=require('./app')
-
 
 const express= require('express')
 const app= express()
@@ -32,10 +30,10 @@ app.post('/person' ,async(req,res)=>{
     }
 })
 
-/*read sathi and */
+
 app.get('/person' ,async(req,res)=>{
     try{
-        const data=await Person.find(/*{work:"chef" }*/);  //spcific all data madhun find kernar 
+        const data=await Person.find();  
         console.log("Data fetched");
         res.status(200).json(data)
     }
@@ -46,14 +44,14 @@ app.get('/person' ,async(req,res)=>{
 })
 
 
-/*worktype all merge*/
+
 
 app.get('/person:workType' ,async(req,res)=>{
     try{
         const workType=req.params.workType;
         if(workType=='chef'|| workType=='waiter' || workType=='manager'){
         
-        const response=await Person.find({work:"workType" });  //spcific all data madhun find kernar 
+        const response=await Person.find({work:"workType" });  
         console.log("response fetched");
         res.status(200).json(response);
     }
@@ -117,7 +115,7 @@ app.delete('/:id', async(req,res)=>{
 
 
 app.listen(7000, ()=>{
-    console.log('server run at 7000')    //direct 3000 port chya jagi lihayeche teri hote 
+    console.log('server run at 7000')    
 })
 
 
@@ -126,34 +124,3 @@ app.listen(7000, ()=>{
 
 
 
-// console.log("this is server5")
-
-/*file create = fs*/
-// const fs= require('fs') 
-
-// const content = " i am new file 2"
-
-// fs.writeFile('newfile2.js',content ,(err)=>{
-//     if (err)
-//     {
-//         console.log("error while creating file",err)
-//     }
-//     else{
-//         console.log("file created suceesfully" )
-//     }
-// }) 
-// console.log(fs)
-
-/*operating system= os*/
-// const os=require('os')
-// console.log('operating system:', os.type());
-// console.log('Platform:', os.platform());
-// console.log('CPU Architecture:', os.arch());
-// console.log('Total Memory:', os.totalmem());
-// console.log('Free Memory:', os.freemem());
-// console.log('System Uptime(seconds):', os.uptime());
-// console.log('Home Directory:', os.homedir());
-// console.log('CPU info:', os.cpus());
-// console.log('Network Interfaces:', os.networkInterfaces());
-
-// console.log(os)
