@@ -33,7 +33,7 @@ app.get('/', login,  function (req, res) {
     res.send("new hello world")
 })
 
-app.post('/person', async (req, res) => {
+app.post('/person',  async (req, res) => {
     try {
         const data = req.body;
         const newPerson = new Person(data);
@@ -47,7 +47,7 @@ app.post('/person', async (req, res) => {
     }
 });
 
-app.get('/person',   localauthmiddleware, async (req, res) => {
+app.get('/person',  async (req, res) => {
     try {
         const data = await Person.find();
         console.log("Data fetched");
